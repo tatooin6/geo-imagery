@@ -11,7 +11,7 @@ services:
     volumes:
       - ./backend:/app
     environment:
-      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/backend/credentials.json
     depends_on:
       - db
 
@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile
     container_name: frontend
     ports:
-      - "3000:3000"
+      - "3000:80"
     volumes:
       - ./frontend:/app
     depends_on:

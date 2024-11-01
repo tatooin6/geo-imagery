@@ -1,4 +1,4 @@
-fastapi
+fastapi[all]
 uvicorn
 google-auth
 earthengine-api

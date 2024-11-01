@@ -8,7 +8,7 @@ function App() {
     const fetchImage = async () => {
         try {
             const response = await axios.get("http://localhost:8000/get_image/", {
-                params: { start_date: "2022-01-01", end_date: "2022-02-01" }
+                params: { start_date: "2023-01-01", end_date: "2023-12-31" }
             });
             setImageUrl(response.data.image_url);
         } catch (error) {

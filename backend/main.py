@@ -1,18 +1,33 @@
-from fastapi import FastAPI, HTTPException
+from datetime import date
+from fastapi import FastAPI, HTTPException, Query
 import ee
-import google.auth
+from google.oauth2 import service_account
 
 app = FastAPI()
 
-# Autenticación de Google Earth Engine
-credentials, project = google.auth.default()
+# Define el alcance requerido
+scopes = ['https://www.googleapis.com/auth/earthengine.readonly']
+
+# Cargar credenciales desde un archivo de cuenta de servicio con el alcance adecuado
+credentials = service_account.Credentials.from_service_account_file(
+    './credentials.json', scopes=scopes
+)
+
+# Inicializar Google Earth Engine con las credenciales y el proyecto
 ee.Initialize(credentials)
 
 @app.get("/get_image/")
-async def get_image(start_date: str, end_date: str):
+async def get_image(
+    start_date: date = Query(..., description="Fecha de inicio en formato YYYY-MM-DD"),
+    end_date: date = Query(..., description="Fecha de fin en formato YYYY-MM-DD")
+):
     try:
+        # Convertir fechas a strings para Google Earth Engine
+        start_date_str = start_date.isoformat()
+        end_date_str = end_date.isoformat()
+
         # Obtener una colección de imágenes de GEE
-        collection = ee.ImageCollection("MODIS/006/MOD13A2").filterDate(start_date, end_date)
+        collection = ee.ImageCollection("COPERNICUS/S2").filterDate(start_date_str, end_date_str)
         image = collection.first()  # Seleccionar la primera imagen como ejemplo
 
         # Exportar la imagen en un formato visualizable
