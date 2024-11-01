@@ -1,8 +1,32 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Frontend - Satellite Imagery Visualization
 
-Currently, two official plugins are available:
+This is the frontend of the application, built with React, Vite, TailwindCSS and Chakra UI. 
+> NOTE: These last two (TailwindCSS and Chakra UI) are installed but not configured.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requirements
+
+- Node.js (version 18 or higher)
+- npm or yarn
+
+## Installation
+
+1. Install the dependencies:
+```bash
+npm install
+```
+2. Execute on development mode:
+```bash
+npm run dev
+```
+3. Compile for production:
+```bash
+npm run build
+```
+4. View production compilatioin locally:
+```bash
+npm run serve
+```
+
+Application available on  `http://localhost:3000`.
+
