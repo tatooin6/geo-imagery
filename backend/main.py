@@ -1,14 +1,28 @@
-from datetime import date
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 import ee
 from google.oauth2 import service_account
+from datetime import date
 
 app = FastAPI()
 
-# Define el alcance requerido
+# CORS configuracion
+origins = [
+    "http://localhost:3000"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+# Alcance requerido
 scopes = ['https://www.googleapis.com/auth/earthengine.readonly']
 
-# Cargar credenciales desde un archivo de cuenta de servicio con el alcance adecuado
+# Credenciales de archivo de cuenta de servicio con el alcance adecuado
 credentials = service_account.Credentials.from_service_account_file(
     './credentials.json', scopes=scopes
 )
