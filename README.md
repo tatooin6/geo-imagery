@@ -6,8 +6,8 @@ Currently this is a Proof of Concept composed of three main services in a docker
 
 ## Project Structure
 
-- `frontend/`: Contains the React frontend project.
-- `backend/`: Contains the FastAPI backend project, which connects to Google Earth Engine to retrieve images.
+- [frontend/](./frontend/README.md): Contains the React frontend project.
+- [backend/](./backend/README.md): Contains the FastAPI backend project, which connects to Google Earth Engine to retrieve images.
 - `db/`: PostgreSQL database service to store user information and other data.
 
 ## Deployment with Docker
@@ -17,10 +17,12 @@ Make sure you have Docker and Docker Compose installed on your system.
 ### Deployment Instructions
 
 1. Clone this repository:
+
 ```bash
 git clone <REPOSITORY_URL>
 cd repository-name
 ```
+
 2. Deploy locally on docker
 Once located on the root directory, it is advisable to build without cache, then start the container with a disengaged terminal:
 ```bash
@@ -28,13 +30,16 @@ docker-compose -f docker-compose.yml build --no-cache
 docker-compose up -d
 ```
 #### Alternatively it can be started with 
+
 ```bash
 docker-compose up --build
 ```
 #### To stop the container
+
 ```bash
 docker-compose down
 ```
+
 3. Check available services at:
 
 Frontend (React): http://localhost:3000
@@ -42,6 +47,7 @@ Backend (FastAPI): http://localhost:8000
 PostgreSQL: localhost:5432
 
 ### Environment Variables
+
 - `GOOGLE_APPLICATION_CREDENTIALS`: Set this value for the Google credentials file in the backend.
 - `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`: Database settings in the `docker-compose.yml` file.
 
