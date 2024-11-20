@@ -74,3 +74,4 @@ The idea behind this Proof of Concept is that exists the possibility to create a
 - Map tools handling.
 - Geometry object management.
 - User Management.
+- Save searched images on database.
