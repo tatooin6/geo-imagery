@@ -52,6 +52,7 @@ PostgreSQL: localhost:5432
 - `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`: Database settings in the `docker-compose.yml` file.
 
 ### Project Structure
+```
 .
 ├── backend/
 │   ├── main.py
@@ -61,7 +62,7 @@ PostgreSQL: localhost:5432
 │   ├── public/
 │   └── src/
 └── docker-compose.yml
-
+```
 
 ## Future Changes and Challenges
 
