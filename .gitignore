@@ -10,6 +10,7 @@ backend/__pycache__/
 *.env
 venv/
 backend/credentials.json
+backend/new-credentials.json
 
 # Docker
 *.log
